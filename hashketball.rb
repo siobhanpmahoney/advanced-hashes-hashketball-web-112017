@@ -200,14 +200,21 @@ def most_points_scored
 end
 
 def winning_team
-  score_array = []
-  score_hash = {}
-  total_score_hash = {}
-  game_hash.each do |loc, team_data|
-    score_hash[game_hash[loc][:team_name]] = []
-    game_hash[loc][:players].each do |player_name, player_stats|
-      score_hash[game_hash[loc][:team_name]] << game_hash[loc][:players][player_name][:points]
-    end
-  end
-    score_hash
-end
+    score_array = []
+    score_hash = {}
+    total_score_hash = {}
+    game_hash.each do |loc, team_data|
+        score_hash[game_hash[loc][:team_name]] = []
+        game_hash[loc][:players].each do |player_name, player_stats| 
+            score_hash[game_hash[loc][:team_name]] << game_hash[loc][:players][player_name][:points]
+        end 
+    end 
+    score_hash.each do |team, array|
+        sum = 0
+        array.each do |i|
+            sum += i
+        end 
+        total_score_hash[team] = sum
+    end 
+    total_score_hash.key(total_score_hash.values.max)
+end 
