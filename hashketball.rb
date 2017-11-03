@@ -218,3 +218,13 @@ def winning_team
   end
   total_score_hash.key(total_score_hash.values.max)
 end
+
+def player_with_longest_name
+  name_length_hash = {}
+  game_hash.each do |loc, team_info|
+    game_hash[loc][:players].each do |name, stats|
+      name_length_hash[name] = name.length
+    end
+  end
+  name_length_hash.key(name_length_hash.values.max)
+end
