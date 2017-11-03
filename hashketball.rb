@@ -217,4 +217,4 @@ def winning_team
     total_score_hash[team] = sum
   end
   total_score_hash.key(total_score_hash.values.max)
-end 
+end
