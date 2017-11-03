@@ -205,28 +205,9 @@ def winning_team
   total_score_hash = {}
   game_hash.each do |loc, team_data|
     score_hash[game_hash[loc][:team_name]] = []
-    game_hash[loc][:players].each do |player_name, player_stats| 
+    game_hash[loc][:players].each do |player_name, player_stats|
       score_hash[game_hash[loc][:team_name]] << game_hash[loc][:players][player_name][:points]
-    end 
-  end 
-    score_hash
-end 
-    
-    
-      if game_hash[loc][:players].keys.include?(player_name)
-        score_hash[game_hash[loc][:team_name]] = score_array
-        score_hash[score_array] << game_hash[loc][:players][player_name][:points]
-      end
-    end
-  end 
-  score_hash
-end
-
-       
-      
-         
-     << [game_hash[loc][:players][player_name][:points]
     end
   end
-  score_array
+    score_hash
 end
